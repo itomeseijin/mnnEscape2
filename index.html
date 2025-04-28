@@ -18,11 +18,17 @@
     <body>
         <div class="content">
             <canvas id="canvas" width="512" height="512"></canvas>
-            <div id="upButton" class="button">
-                <div>
-                    <span class="up"></span>
-                </div>
-            </div>
+            <p class="left">
+            <font size="1">
+                スマホ用です。PC用の操作はいずれ実装します。<br>
+                操作方法：<br>・フリック: 移動<br>・タップ: 調べる<br>
+                ヒント１：どこかに敵を１体撃退できるアイテムがあります<br>
+                ヒント２：画面のどこでも操作できます。白い所でもOKです<br>
+                ヒント３：主人公は障害物など気にしません<br>
+                ヒント４：主人公はお腹の辺りで物を調べます
+            </font>
+            </p>
+
         </div>
         <script>
             var cvs = document.getElementById("canvas");
@@ -34,7 +40,7 @@
             var ssv = new Image();
             var sss = new Image();
             var sab = new Image();
-            var ssc = new Image();
+            //var  = new Image();
             
             var msg = new Image();
 
@@ -48,14 +54,21 @@
             var battery = new Image();
             var tape = new Image();
             var key = new Image();
-        
+
+            //調査完了用
+            var chest = new Image();
+            var dust = new Image();
+            var sink = new Image();
+            var strage = new Image();
+
+            /*
             bg.src = '{{ url_for("static", filename="imgs/bg.PNG")}}';
             bg2.src = '{{ url_for("static", filename="imgs/bg2.PNG")}}';
             mnn.src = '{{ url_for("static", filename="imgs/mnn.PNG")}}';
             ssv.src = '{{ url_for("static", filename="imgs/ssv.PNG")}}';
             sss.src = '{{ url_for("static", filename="imgs/sss.PNG")}}';
             sab.src = '{{ url_for("static", filename="imgs/sab.PNG")}}';
-            ssc.src = '{{ url_for("static", filename="imgs/ssc.PNG")}}';
+            .src = '{{ url_for("static", filename="imgs/.PNG")}}';
 
             msg.src = '{{ url_for("static", filename="imgs/msg.PNG")}}';
 
@@ -68,14 +81,16 @@
             battery.src = '{{ url_for("static", filename="imgs/battery.PNG")}}';
             tape.src = '{{ url_for("static", filename="imgs/tape.PNG")}}';
             key.src = '{{ url_for("static", filename="imgs/key.PNG")}}';
+            */
 
-            /*
+            
             bg.src = 'imgs/bg.PNG';
             bg2.src = 'imgs/bg2.PNG';
             mnn.src = 'imgs/mnn.PNG';
             ssv.src = 'imgs/ssv.PNG';
             sss.src = 'imgs/sss.PNG';
             sab.src = 'imgs/sab.PNG';
+            //.src = 'imgs/.PNG';
 
             msg.src = 'imgs/msg.PNG';
 
@@ -87,14 +102,19 @@
             three.src = 'imgs/three.PNG';
             battery.src = 'imgs/battery.PNG';
             tape.src = 'imgs/tape.PNG';
-            key.src = 'imgs/key.PGN';
-            */
+            key.src = 'imgs/key.PNG';
 
+            chest.src = 'imgs/chest.PNG';
+            dust.src = 'imgs/dust.PNG';
+            sink.src = 'imgs/sink.PNG';
+            strage.src = 'imgs/strage.PNG';
+            
             //var mnnPos = {x:428, y:348-mnn.height};
             var mnnPos = {x:400, y:200};
             var mnnCenterX = -1;
             var mnnCenterY = -1;
-            var items = [skey, paper, shaver, four, fire, three, battery, tape, key];
+            //var items = [skey, paper, shaver, four, fire, three, battery, tape, key];
+            var items = [skey, paper, knigh, four, fire, three, battery, tape, key];
             var itemFlg = [0,0,0,0,0,0,0,0,0]; //小鍵、書類、シェーバー、４桁、マッチ、３桁、電池、テープ、鍵
             //var itemFlg = [1,1,1,1,1,1,1,1,1]; //小鍵、書類、シェーバー、４桁、マッチ、３桁、電池、テープ、鍵
             var itemPosX = [88,124,160,200,244,280,324,360,404];
@@ -109,6 +129,11 @@
             ];//stateFlgを参照。ラジオを聞いた、アルコールランプを使った、テープを聞いたで順に登場
             var msgOn = 0;
 
+            var chestPos = {x: 224, y: 96};
+            var dustPos = {x: 60, y: 460};
+            var sinkPos = {x: 28, y: 268};
+            var stragePos = {x: 416, y: 116};
+            
             // ゲーム用変数
             var delay = 50;
             var ssvMoveDelay = 10;
@@ -503,7 +528,7 @@
                                 }
                             //ID 21 phone 176, 348 - 216 384
                             }else if(mnnCenterX>175 && mnnCenterX<217 && mnnCenterY>347 && mnnCenterY<385){
-                                if (stateFlg[0] == 0){
+                                if (stateFlg[1] == 0){
                                     txt = "古い電話機だ。どこにかけよう。";
                                     txt2 = "スマホもないし番号なんて覚えていない。";
                                     txt3 = "自分の番号はかからなかった。";
@@ -562,6 +587,7 @@
                                 txt4 = "";
                             }else{
                                 if (itemFlg[8] == 0){
+                                    console.log("???");
                                     txt = "ベッドの下に潜り込んで必死に手を動かした。";
                                     txt2 = "鍵を見つけた。緊急用と書いてある。";
                                     txt3 = "埃まみれだ！　許さない！";
@@ -581,12 +607,12 @@
                             if (itemFlg[2] == 0 && shavedId < 0){
                                 txt = "マットレスは消えてしまった。";
                                 txt2 = "どこにいってしまったのだろう。";
-                                txt3 = "あれ、何か落ちている…。シェーバーだ。";
-                                txt4 = "『シェーバー』をゲットした。";
+                                txt3 = "あれ、何か落ちている…。ナイフだ。";
+                                txt4 = "『ナイフ』をゲットした。";
                                 itemFlg[2] = 1;
                             }else{
-                                txt = "なんでシェーバーなんか落ちていたんだろう…。";
-                                txt2 = "なんでシェーバーなんか拾ったんだろう…。";
+                                txt = "なんでナイフなんか落ちていたんだろう…。";
+                                txt2 = "なんでナイフなんか拾ったんだろう…。";
                                 txt3 = "";
                                 txt4 = "";
                             }
@@ -623,6 +649,24 @@
                 ctx.drawImage(bg,0,0);
                 ctx.drawImage(bg2,0,0);
 
+                //小鍵、書類、シェーバー、４桁、マッチ、３桁、電池、テープ、鍵
+                //調査済みの場所の上書き
+                if (itemFlg[0] == 1){
+                    // sink searched
+                    ctx.drawImage(sink,sinkPos.x,sinkPos.y);
+                }
+                if (itemFlg[1] == 1){
+                    // dust searched
+                    ctx.drawImage(dust,dustPos.x,dustPos.y);
+                }
+                if (itemFlg[4] == 1){
+                    // desk searched
+                    ctx.drawImage(chest,chestPos.x,chestPos.y);
+                }if (itemFlg[7] == 1){
+                    // strage searched
+                    ctx.drawImage(strage,stragePos.x,stragePos.y);
+                }
+
                 // MNNより奥の描画
                 for(var i=0; i < ssvs.length; i++){
                     // ゾンビが発生していて
@@ -631,9 +675,9 @@
                     }
                 }
 
-                if(shavedId > -1){
-                    ctx.drawImage(ssc, ssvPos[shavedId].x, ssvPos[shavedId].y);
-                }
+                //if(shavedId > -1){
+                //    ctx.drawImage(ssc, ssvPos[shavedId].x, ssvPos[shavedId].y);
+                //}
                 
 
                 for(var i=0; i < itemFlg.length; i++){
@@ -705,10 +749,10 @@
                             mnnPos.y + mnn.height/2  <= ssvPos[i].y + ssv.height) {
                             if(itemFlg[2] == 1){
                                 msgOn = 1;
-                                txt = "イチかバチかで手にしたシェーバーを前に突き出した。";
-                                txt2 = "空を切ったかに見えたシェーバーは男の頭頂部を剃り上げた。";
-                                txt3 = "すると襲撃者は豹変し、「呪いを解いてくれてありがとう」と";
-                                txt4 = "言った。しかし、剛毛すぎてシェーバーは壊れてしまった。";
+                                txt = "イチかバチかで手にしたナイフを前に突き出した。";
+                                txt2 = "空を切ったかに見えたナイフはゾンビの首にズブズブと埋まった。";
+                                txt3 = "嫌な感触だ。思わず手を離してしまった。";
+                                txt4 = "ゾンビは倒せたけど、ナイフは回収できそうにない。";
                                 shavedId = i;
                                 ssvFlg[i] = 0;
                                 itemFlg[2] = 0;
