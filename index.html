@@ -159,6 +159,7 @@
                 if (e.code == "KeyA"){
                     if (msgOn == 0){
                         msgOn = 1;
+                        checkHere();
                         //メッセージを出す
                     } else {
                         msgOn = 0;
@@ -220,6 +221,417 @@
                 }
                 e.preventDefault();
             }
+
+            function checkHere(){
+                mnnCenterX = mnnPos.x + mnn.width/2;
+                mnnCenterY = mnnPos.y + mnn.height/2;
+                if (mnnCenterX>71 && mnnCenterX<101 && mnnCenterY>32 && mnnCenterY<100){
+                        if (stateFlg[0] == 0){
+                            txt = "壁に時計がかけられている。";
+                            txt2 = "チクタク音がする。";
+                            txt3 = "夜の10時らしい。";
+                            txt4 = "";
+                        }else if (itemFlg[6] == 0){
+                            txt = "そういえば電池が入っているはずだ。";
+                            txt2 = "ちょっとお借りしよう。";
+                            txt3 = "『乾電池』をゲットした。";
+                            txt4 = "";
+                            itemFlg[6] = 1;
+                        }else{
+                            txt = "壁に時計がかけられている。";
+                            txt2 = "もう音はしない。";
+                            txt3 = "";
+                            txt4 = "";
+                        }
+                    }
+
+                    //ID ?? window 148, 32 - 352, 86
+                    if (mnnCenterX>147 && mnnCenterX<353 && mnnCenterY>31 && mnnCenterY<87){
+                        txt = "外は真っ暗だ。満月がやけに大きい。";
+                        txt2 = "胸騒ぎがする…。";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 2 kabe ato 112, 48 - 140, 100
+                    if (mnnCenterX>111 && mnnCenterX<141 && mnnCenterY>47 && mnnCenterY<100){
+                        txt = "何かを剥がしたあと、なのかな。";
+                        txt2 = "少し上に掠れた字で「秘密の鍵　炙り出し」と書いてある。";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 3 desk1 168, 76 - 260, 128
+                    if (mnnCenterX>167 && mnnCenterX<261 && mnnCenterY>75 && mnnCenterY<129){
+                        //ID 4 hikidashi 224, 92 - 260, 128
+                        if (mnnCenterX>223 && mnnCenterX<261 && mnnCenterY>91 && mnnCenterY<129){
+                            if (itemFlg[0] == 0){
+                                txt = "引き出しには鍵がかかっている。";
+                                txt2 = "小さな鍵が必要みたい。";
+                                txt3 = "";
+                                txt4 = "";
+                            }else{
+                                if (itemFlg[4] == 0){
+                                    txt = "引き出しを開けた。";
+                                    txt2 = "本などと一緒にマッチの箱が入っていた。";
+                                    txt3 = "マッチも残っているみたい。";
+                                    txt4 = "『マッチ』をゲットした。";
+                                    itemFlg[4] = 1;
+                                }else{
+                                    txt = "日記を読んだ。";
+                                    txt2 = "書いた人は研究者かな？　何かの実験の準備をしていて…。";
+                                    txt3 = "その結果は書いていない。";
+                                    txt4 = "";
+                                }
+                            }
+                        }else{
+                            txt = "仕事机だろうか。本や書類が散乱している。";
+                            txt2 = "…難しくてよくわからない。次なる次元？";
+                            txt3 = "";
+                            txt4 = "";
+                        }
+                    }
+
+                    //ID ５ dust1 272, 88 - 304, 124
+                    if (mnnCenterX>271 && mnnCenterX<305 && mnnCenterY>87 && mnnCenterY<125){
+                        txt = "汚くて臭い。触りたくない。";
+                        txt2 = "";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 6 dust1 308, 88 - 340, 124
+                    if (mnnCenterX>307 && mnnCenterX<341 && mnnCenterY>87 && mnnCenterY<125){
+                        txt = "汚くて臭い。触りたくない。";
+                        txt2 = "絶対に。";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 7 calendar 356, 40 - 384, 100
+                    if (mnnCenterX>355 && mnnCenterX<385 && mnnCenterY>39 && mnnCenterY<100){
+                        txt = "1955年９月のカレンダー。";
+                        txt2 = "誕生日に花丸がついている。";
+                        txt3 = "祝えたのかはわからないけど。";
+                        txt4 = "";
+                    }
+
+                    //ID 8 hondana 396, 36 - 468, 120
+                    if (mnnCenterX>395 && mnnCenterX<469 && mnnCenterY>35 && mnnCenterY<121){
+                        if (stateFlg[3] == 0){
+                            txt = "真面目な本が並んでいる。";
+                            txt2 = "下の段には段ボールが詰め込まれている。";
+                            txt3 = "";
+                            txt4 = "";
+                        }else{
+                            if (itemFlg[8] == 0){
+                                txt = "段ボールをどかした先には小さな扉があった。";
+                                txt2 = "扉には鍵穴があって開かない！";
+                                txt3 = "ふざけるな！！";
+                                txt4 = "";
+                            }else{
+                                txt = "段ボールをどかした先には小さな扉があった。";
+                                txt2 = "鍵を開ける。後ろから気配がする。";
+                                txt3 = "こんなところとはおさらばだ！";
+                                txt4 = "脱出成功！！！！！！！！！";
+                                itemFlg = [0,0,0,0,0,0,0,0,0]; 
+                                stateFlg = [0,0,0,0];
+                                ssvFlg = [0,0,0];
+                                shavedId = -1;
+                                ssvPos = [
+                                    {x:92, y:380-ssv.height}, 
+                                    {x:212, y:212-ssv.height}, 
+                                    {x:384, y:272-ssv.height}
+                                ];
+                            }
+                        }
+                    }
+
+                    //ID 9 sink1 24, 76 - 68, 120
+                    if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>75 && mnnCenterY<121){
+                        txt = "赤く濁った水が溜まっている。";
+                        txt2 = "";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 10 desk2 24, 120 - 68, 256
+                    if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>120 && mnnCenterY<257){
+                        //ID 11 book 24, 172 - 56, 212
+                        if (mnnCenterX>23 && mnnCenterX<57 && mnnCenterY>171 && mnnCenterY<213){
+                            txt = "これまでの実験の記録のようだ。";
+                            txt2 = "血液に薬品を混ぜて…進化、させる？";
+                            txt3 = "よくわからない。";
+                            txt4 = "";
+                        }else{
+                            txt = "机の上には顕微鏡とノートが置いてある。";
+                            txt2 = "";
+                            txt3 = "";
+                            txt4 = "";
+                        }
+                    }
+
+                    //ID 12 yuka 412, 140 - 456, 184
+                    if (mnnCenterX>411 && mnnCenterX<457 && mnnCenterY>139 && mnnCenterY<185){
+                        if (itemFlg[5] == 0){
+                            txt = "床に出口のようなものが見える。";
+                            txt2 = "鍵がかかっていて開かない。";
+                            txt3 = "３桁の数字が必要みたい。";
+                            txt4 = "";
+                        }else{
+                            if (itemFlg[7] == 0){
+                                txt = "出口じゃなくて収納だったみたい。";
+                                txt2 = "腐っているのか嫌な匂いがする。";
+                                txt3 = "あ…カセットテープを見つけた。";
+                                txt4 = "『テープ』をゲットした。";
+                                itemFlg[7] = 1;
+                            }else{
+                                txt = "カセットテープはもう取った。";
+                                txt2 = "絶対にもう二度と開けたくない。";
+                                txt3 = "多分だけどもう何もないと思う。";
+                                txt4 = "";
+                            }
+                        }
+                    }
+
+                    //ID 13 shelf 462, 122 - 488, 272
+                    if (mnnCenterX>461 && mnnCenterX<488 && mnnCenterY>121 && mnnCenterY<273){
+                        txt = "鍵のかかった棚の中に薬品が並んでいる。";
+                        txt2 = "ちょっとだけワクワクする。";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 14 sink2 24, 260 - 68, 300
+                    if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>259 && mnnCenterY<301){
+                        if (itemFlg[0] == 0){
+                            txt = "赤く濁った水が溜まっている。";
+                            txt2 = "…何かが光った気がした。";
+                            txt3 = "仕方なく手を突っ込んで水を抜いた。";
+                            txt4 = "『小さな鍵』をゲットした。";
+                            itemFlg[0] = 1;
+                        }else{
+                            txt = "手を洗って嫌な感触のことを忘れよう…。";
+                            txt2 = "少し服が汚れているのに気づいてしまった。";
+                            txt3 = "許さない。";
+                            txt4 = "";
+                        }
+                    }
+
+                    //ID 15 desk3
+                    if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>300 && mnnCenterY<368){
+                        txt = "机の上には顕微鏡とアルコールランプが置かれている。";
+                        txt2 = "";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 16 ramp 28, 368 - 56, 396
+                    if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>367 && mnnCenterY<397){
+                        if (itemFlg[4] == 0){
+                            txt = "アルコールランプだ。";
+                            txt2 = "懐かしい。";
+                            txt3 = "";
+                            txt4 = "";
+                        }else{
+                            if (itemFlg[1] == 0){
+                                txt = "火がついた。";
+                                txt2 = "明るい…少しだけホッとした。";
+                                txt3 = "だけど、危ないから消しておこう。";
+                                txt4 = "";
+                            }else{
+                                if(stateFlg[2] == 0){
+                                    txt = "炙り出しをした。何か書いてある。";
+                                    txt2 = "真ん中のベッドの裏？";
+                                    txt3 = "『鍵の在りか』を記憶した。";
+                                    txt4 = "!! テーブルの下から何かが現れた！！";
+                                    stateFlg[2] = 1;
+                                    ssvFlg[1] = 1;
+                                }else{
+                                    txt = "真ん中のベッドの裏を調べなきゃ";
+                                    txt2 = "";
+                                    txt3 = "";
+                                    txt4 = "";
+                                }
+                            }
+                        }
+                    }
+
+                    //ID 17 dust3 24, 444 - 72, 484
+                    if (mnnCenterX>23 && mnnCenterX<73 && mnnCenterY>435 && mnnCenterY<485){
+                        if (itemFlg[1] == 0){
+                            txt = "汚くて臭い。触りたくない。";
+                            txt2 = "…あ、何か紙が落ちている。";
+                            txt3 = "内容は特に無いが妙なスペースがある。";
+                            txt4 = "『書類』をゲットした。";
+                            itemFlg[1] = 1;
+                        }else{
+                            xt = "汚くて臭い。触りたくない。";
+                            txt2 = "たとえ何か手掛かりがあったとしても。";
+                            txt3 = "";
+                            txt4 = "";
+                        }
+                    }
+
+                    //ID 18 table 176, 216 - 276, 440
+                    if (mnnCenterX>175 && mnnCenterX<277 && mnnCenterY>215 && mnnCenterY<441){
+                    
+                        //ID 19 radio 192, 228 - 256, 260
+                        if (mnnCenterX>191 && mnnCenterX<257 && mnnCenterY>227 && mnnCenterY<261){
+                            if (stateFlg[0] == 0){
+                                txt = "ラジオとカセットが一体化した家電だ。";
+                                txt2 = "電池が入っていない。";
+                                txt3 = "『電池』のことを記憶した。";
+                                txt4 = "";
+                                stateFlg[0] = 1;
+                            }else if (itemFlg[6] == 1 && stateFlg[1] == 0){
+                                txt = "電池を入れるとラジオが流れ出した。";
+                                txt2 = "留守番電話サービスなるものがあるらしい。";
+                                txt3 = "『留守電サービス』のことを記憶した。";
+                                txt4 = "！！　机の下から何かが現れた！！";
+                                stateFlg[1] = 1;
+                                ssvFlg[0] = 1;
+                            }else if(itemFlg[6] == 1 && itemFlg[7] == 1 && stateFlg[3] == 0){
+                                txt = "カセットを再生した。";
+                                txt2 = "研究者は監禁されていたみたい。";
+                                txt3 = "秘密の裏口が…本欄の裏に、ある？";
+                                txt4 = "！！　ベッドの下からも何かが現れた！！";
+                                stateFlg[3] = 1;
+                                ssvFlg[2] = 1;
+                            }else if(itemFlg[6] == 1 && itemFlg[7] == 1 && stateFlg[3] == 1){
+                                txt = "カセットを再生した。";
+                                txt2 = "研究者は監禁されていたみたい。";
+                                txt3 = "秘密の裏口が…本欄の裏に、ある？";
+                                txt4 = "";
+                            }else{
+                                if(itemFlg[6] == 1){ 
+                                    txt = "ラジオはほとんど雑音になってしまった。";
+                                    txt2 = "聞き取れたのは留守番電話サービスのことくらい…。";
+                                    txt3 = "カセットは持っていない。";
+                                    txt4 = "というか、カセットなんか知らない。";
+                                }else{
+                                    txt = "電池…どこかにないかな。";
+                                    txt2 = "";
+                                    txt3 = "";
+                                    txt4 = "";
+                                }
+                            }
+                        //ID 20 4digits 228, 288 - 272, 356
+                        }else if(mnnCenterX>227 && mnnCenterX<273 && mnnCenterY>287 && mnnCenterY<357){
+                            if (itemFlg[3] == 0){
+                                txt = "何かの連絡のようだ。";
+                                txt2 = "…ん？ 書類の下に何か書いてある。";
+                                txt3 = "1725…なんの数字だろう。";
+                                txt4 = "『４桁の数字』をゲットした";
+                                itemFlg[3] = 1;
+                            }else{
+                                txt = "1725…なんの数字だろう。";
+                                txt2 = "";
+                                txt3 = "";
+                                txt4 = "";
+                            }
+                        //ID 21 phone 176, 348 - 216 384
+                        }else if(mnnCenterX>175 && mnnCenterX<217 && mnnCenterY>347 && mnnCenterY<385){
+                            if (stateFlg[1] == 0){
+                                txt = "古い電話機だ。どこにかけよう。";
+                                txt2 = "スマホもないし番号なんて覚えていない。";
+                                txt3 = "自分の番号はかからなかった。";
+                                txt4 = "私は受話器を置いた。何だか詩的。";
+                            }else{
+                                if (itemFlg[3] == 0){
+                                    txt = "ラジオが言っていた留守電サービスに";
+                                    txt2 = "かけてみた。…４桁の暗証番号？";
+                                    txt3 = "そんなの知らない。";
+                                    txt4 = "";
+                                }else{
+                                    if (itemFlg[5] == 0){
+                                        txt = "留守番電話サービスにかけて、暗証番号を入力した。";
+                                        txt2 = "床下収納が何とか言っているけどひどく聞き取りづらい。";
+                                        txt3 = "番号は３…６…５。";
+                                        txt4 = "『３桁の番号』をゲットした。";
+                                        itemFlg[5] = 1;
+                                    }else{
+                                        txt = "なぜだろう。電話はもう繋がらない。";
+                                        txt2 = "";
+                                        txt3 = "";
+                                        txt4 = "";
+                                    }
+                                }
+                            }
+                        }else{
+                            txt = "大きな机だ。";
+                            txt2 = "ラジカセと書類と黒電話が置かれている。";
+                            txt3 = "";
+                            txt4 = "";
+                        }
+                    }
+
+                    //ID 22 blood 336, 208 - 376, 244
+                    if (mnnCenterX>335 && mnnCenterX<378 && mnnCenterY>207 && mnnCenterY<245){
+                        txt = "げげ…気色が悪い…。";
+                        txt2 = "";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //ID 23 bed1 384, 284 -488, 336
+                    if (mnnCenterX>383 && mnnCenterX<489 && mnnCenterY>283 && mnnCenterY<337){
+                        txt = "黒いフレームのベッドにマットレスが乗っている。";
+                        txt2 = "ここに寝かされていたんだ。汚いなぁ…。";
+                        txt3 = "";
+                        txt4 = "";
+                    }
+
+                    //24 bed2 384, 356 - 488, 404
+                    if (mnnCenterX>383 && mnnCenterX<489 && mnnCenterY>355 && mnnCenterY<405){
+                        if (stateFlg[2] == 0){
+                            txt = "シミのついたマットレスが乗っている。";
+                            txt2 = "何だか…、人の形に見える。";
+                            txt3 = "寝かされていたのがこっちじゃなくて良かった。";
+                            txt4 = "";
+                        }else{
+                            if (itemFlg[8] == 0){
+                                console.log("???");
+                                txt = "ベッドの下に潜り込んで必死に手を動かした。";
+                                txt2 = "鍵を見つけた。緊急用と書いてある。";
+                                txt3 = "埃まみれだ！　許さない！";
+                                txt4 = "『鍵』をゲットした";
+                                itemFlg[8] = 1;
+                            }else{
+                                txt = "許さない！";
+                                txt2 = "";
+                                txt3 = "";
+                                txt4 = "";
+                            }
+                        }
+                    }
+
+                    //25 bed3 384, 436 - 488, 478
+                    if (mnnCenterX>383 && mnnCenterX<489 && mnnCenterY>435 && mnnCenterY<479){
+                        if (itemFlg[2] == 0 && shavedId < 0){
+                            txt = "マットレスは消えてしまった。";
+                            txt2 = "どこにいってしまったのだろう。";
+                            txt3 = "あれ、何か落ちている…。ナイフだ。";
+                            txt4 = "『ナイフ』をゲットした。";
+                            itemFlg[2] = 1;
+                        }else{
+                            txt = "なんでナイフなんか落ちていたんだろう…。";
+                            txt2 = "なんでナイフなんか拾ったんだろう…。";
+                            txt3 = "";
+                            txt4 = "";
+                        }
+                    }
+
+                    //ID 2６ door 206, 456 -308, 492
+                    if (mnnCenterX>205 && mnnCenterX<309 && mnnCenterY>435 && mnnCenterY<493){
+                        txt = "ドアノブは回るのにドアは開かない。";
+                        txt2 = "外から塞がれてしまっているみたいだ。";
+                        txt3 = "";
+                        txt4 = "";
+                   }
+            }
+
+            
             function touchEnd(e){
                 touchFlg = 0;
                 console.log("end of touch: " + touchTime);
@@ -232,415 +644,7 @@
                         //0:小鍵、1:書類、2:シェーバー、3:４桁、4:マッチ、5:３桁、6:電池、7:テープ、8:鍵
                         //var stateFlg = [1,1,1,1]; //ラジカセを調べている、留守電、鍵の在処、出口の存在
                         //ID1 tokei 72, 32 - 100, 60
-                        if (mnnCenterX>71 && mnnCenterX<101 && mnnCenterY>32 && mnnCenterY<100){
-                            if (stateFlg[0] == 0){
-                                txt = "壁に時計がかけられている。";
-                                txt2 = "チクタク音がする。";
-                                txt3 = "夜の10時らしい。";
-                                txt4 = "";
-                            }else if (itemFlg[6] == 0){
-                                txt = "そういえば電池が入っているはずだ。";
-                                txt2 = "ちょっとお借りしよう。";
-                                txt3 = "『乾電池』をゲットした。";
-                                txt4 = "";
-                                itemFlg[6] = 1;
-                            }else{
-                                txt = "壁に時計がかけられている。";
-                                txt2 = "もう音はしない。";
-                                txt3 = "";
-                                txt4 = "";
-                            }
-                        }
-
-                        //ID ?? window 148, 32 - 352, 86
-                        if (mnnCenterX>147 && mnnCenterX<353 && mnnCenterY>31 && mnnCenterY<87){
-                            txt = "外は真っ暗だ。満月がやけに大きい。";
-                            txt2 = "胸騒ぎがする…。";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 2 kabe ato 112, 48 - 140, 100
-                        if (mnnCenterX>111 && mnnCenterX<141 && mnnCenterY>47 && mnnCenterY<100){
-                            txt = "何かを剥がしたあと、なのかな。";
-                            txt2 = "少し上に掠れた字で「秘密の鍵　炙り出し」と書いてある。";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 3 desk1 168, 76 - 260, 128
-                        if (mnnCenterX>167 && mnnCenterX<261 && mnnCenterY>75 && mnnCenterY<129){
-                            //ID 4 hikidashi 224, 92 - 260, 128
-                            if (mnnCenterX>223 && mnnCenterX<261 && mnnCenterY>91 && mnnCenterY<129){
-                                if (itemFlg[0] == 0){
-                                    txt = "引き出しには鍵がかかっている。";
-                                    txt2 = "小さな鍵が必要みたい。";
-                                    txt3 = "";
-                                    txt4 = "";
-                                }else{
-                                    if (itemFlg[4] == 0){
-                                        txt = "引き出しを開けた。";
-                                        txt2 = "本などと一緒にマッチの箱が入っていた。";
-                                        txt3 = "マッチも残っているみたい。";
-                                        txt4 = "『マッチ』をゲットした。";
-                                        itemFlg[4] = 1;
-                                    }else{
-                                        txt = "日記を読んだ。";
-                                        txt2 = "書いた人は研究者かな？　何かの実験の準備をしていて…。";
-                                        txt3 = "その結果は書いていない。";
-                                        txt4 = "";
-                                    }
-                                }
-                            }else{
-                                txt = "仕事机だろうか。本や書類が散乱している。";
-                                txt2 = "…難しくてよくわからない。次なる次元？";
-                                txt3 = "";
-                                txt4 = "";
-                            }
-                        }
-
-                        //ID ５ dust1 272, 88 - 304, 124
-                        if (mnnCenterX>271 && mnnCenterX<305 && mnnCenterY>87 && mnnCenterY<125){
-                            txt = "汚くて臭い。触りたくない。";
-                            txt2 = "";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 6 dust1 308, 88 - 340, 124
-                        if (mnnCenterX>307 && mnnCenterX<341 && mnnCenterY>87 && mnnCenterY<125){
-                            txt = "汚くて臭い。触りたくない。";
-                            txt2 = "絶対に。";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 7 calendar 356, 40 - 384, 100
-                        if (mnnCenterX>355 && mnnCenterX<385 && mnnCenterY>39 && mnnCenterY<100){
-                            txt = "1955年９月のカレンダー。";
-                            txt2 = "誕生日に花丸がついている。";
-                            txt3 = "祝えたのかはわからないけど。";
-                            txt4 = "";
-                        }
-
-                        //ID 8 hondana 396, 36 - 468, 120
-                        if (mnnCenterX>395 && mnnCenterX<469 && mnnCenterY>35 && mnnCenterY<121){
-                            if (stateFlg[3] == 0){
-                                txt = "真面目な本が並んでいる。";
-                                txt2 = "下の段には段ボールが詰め込まれている。";
-                                txt3 = "";
-                                txt4 = "";
-                            }else{
-                                if (itemFlg[8] == 0){
-                                    txt = "段ボールをどかした先には小さな扉があった。";
-                                    txt2 = "扉には鍵穴があって開かない！";
-                                    txt3 = "ふざけるな！！";
-                                    txt4 = "";
-                                }else{
-                                    txt = "段ボールをどかした先には小さな扉があった。";
-                                    txt2 = "鍵を開ける。後ろから気配がする。";
-                                    txt3 = "こんなところとはおさらばだ！";
-                                    txt4 = "脱出成功！！！！！！！！！";
-                                    itemFlg = [0,0,0,0,0,0,0,0,0]; 
-                                    stateFlg = [0,0,0,0];
-                                    ssvFlg = [0,0,0];
-                                    shavedId = -1;
-                                    ssvPos = [
-                                        {x:92, y:380-ssv.height}, 
-                                        {x:212, y:212-ssv.height}, 
-                                        {x:384, y:272-ssv.height}
-                                    ];
-                                }
-                            }
-                        }
-
-                        //ID 9 sink1 24, 76 - 68, 120
-                        if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>75 && mnnCenterY<121){
-                            txt = "赤く濁った水が溜まっている。";
-                            txt2 = "";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 10 desk2 24, 120 - 68, 256
-                        if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>120 && mnnCenterY<257){
-                            //ID 11 book 24, 172 - 56, 212
-                            if (mnnCenterX>23 && mnnCenterX<57 && mnnCenterY>171 && mnnCenterY<213){
-                                txt = "これまでの実験の記録のようだ。";
-                                txt2 = "血液に薬品を混ぜて…進化、させる？";
-                                txt3 = "よくわからない。";
-                                txt4 = "";
-                            }else{
-                                txt = "机の上には顕微鏡とノートが置いてある。";
-                                txt2 = "";
-                                txt3 = "";
-                                txt4 = "";
-                            }
-                        }
-
-                        //ID 12 yuka 412, 140 - 456, 184
-                        if (mnnCenterX>411 && mnnCenterX<457 && mnnCenterY>139 && mnnCenterY<185){
-                            if (itemFlg[5] == 0){
-                                txt = "床に出口のようなものが見える。";
-                                txt2 = "鍵がかかっていて開かない。";
-                                txt3 = "３桁の数字が必要みたい。";
-                                txt4 = "";
-                            }else{
-                                if (itemFlg[7] == 0){
-                                    txt = "出口じゃなくて収納だったみたい。";
-                                    txt2 = "腐っているのか嫌な匂いがする。";
-                                    txt3 = "あ…カセットテープを見つけた。";
-                                    txt4 = "『テープ』をゲットした。";
-                                    itemFlg[7] = 1;
-                                }else{
-                                    txt = "カセットテープはもう取った。";
-                                    txt2 = "絶対にもう二度と開けたくない。";
-                                    txt3 = "多分だけどもう何もないと思う。";
-                                    txt4 = "";
-                                }
-                            }
-                        }
-
-                        //ID 13 shelf 462, 122 - 488, 272
-                        if (mnnCenterX>461 && mnnCenterX<488 && mnnCenterY>121 && mnnCenterY<273){
-                            txt = "鍵のかかった棚の中に薬品が並んでいる。";
-                            txt2 = "ちょっとだけワクワクする。";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 14 sink2 24, 260 - 68, 300
-                        if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>259 && mnnCenterY<301){
-                            if (itemFlg[0] == 0){
-                                txt = "赤く濁った水が溜まっている。";
-                                txt2 = "…何かが光った気がした。";
-                                txt3 = "仕方なく手を突っ込んで水を抜いた。";
-                                txt4 = "『小さな鍵』をゲットした。";
-                                itemFlg[0] = 1;
-                            }else{
-                                txt = "手を洗って嫌な感触のことを忘れよう…。";
-                                txt2 = "少し服が汚れているのに気づいてしまった。";
-                                txt3 = "許さない。";
-                                txt4 = "";
-                            }
-                        }
-
-                        //ID 15 desk3
-                        if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>300 && mnnCenterY<368){
-                            txt = "机の上には顕微鏡とアルコールランプが置かれている。";
-                            txt2 = "";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 16 ramp 28, 368 - 56, 396
-                        if (mnnCenterX>23 && mnnCenterX<69 && mnnCenterY>367 && mnnCenterY<397){
-                            if (itemFlg[4] == 0){
-                                txt = "アルコールランプだ。";
-                                txt2 = "懐かしい。";
-                                txt3 = "";
-                                txt4 = "";
-                            }else{
-                                if (itemFlg[1] == 0){
-                                    txt = "火がついた。";
-                                    txt2 = "明るい…少しだけホッとした。";
-                                    txt3 = "だけど、危ないから消しておこう。";
-                                    txt4 = "";
-                                }else{
-                                    if(stateFlg[2] == 0){
-                                        txt = "炙り出しをした。何か書いてある。";
-                                        txt2 = "真ん中のベッドの裏？";
-                                        txt3 = "『鍵の在りか』を記憶した。";
-                                        txt4 = "!! テーブルの下から何かが現れた！！";
-                                        stateFlg[2] = 1;
-                                        ssvFlg[1] = 1;
-                                    }else{
-                                        txt = "真ん中のベッドの裏を調べなきゃ";
-                                        txt2 = "";
-                                        txt3 = "";
-                                        txt4 = "";
-                                    }
-                                }
-                            }
-                        }
-
-                        //ID 17 dust3 24, 444 - 72, 484
-                        if (mnnCenterX>23 && mnnCenterX<73 && mnnCenterY>435 && mnnCenterY<485){
-                            if (itemFlg[1] == 0){
-                                txt = "汚くて臭い。触りたくない。";
-                                txt2 = "…あ、何か紙が落ちている。";
-                                txt3 = "内容は特に無いが妙なスペースがある。";
-                                txt4 = "『書類』をゲットした。";
-                                itemFlg[1] = 1;
-                            }else{
-                                xt = "汚くて臭い。触りたくない。";
-                                txt2 = "たとえ何か手掛かりがあったとしても。";
-                                txt3 = "";
-                                txt4 = "";
-                            }
-                        }
-
-                        //ID 18 table 176, 216 - 276, 440
-                        if (mnnCenterX>175 && mnnCenterX<277 && mnnCenterY>215 && mnnCenterY<441){
-                        
-                            //ID 19 radio 192, 228 - 256, 260
-                            if (mnnCenterX>191 && mnnCenterX<257 && mnnCenterY>227 && mnnCenterY<261){
-                                if (stateFlg[0] == 0){
-                                    txt = "ラジオとカセットが一体化した家電だ。";
-                                    txt2 = "電池が入っていない。";
-                                    txt3 = "『電池』のことを記憶した。";
-                                    txt4 = "";
-                                    stateFlg[0] = 1;
-                                }else if (itemFlg[6] == 1 && stateFlg[1] == 0){
-                                    txt = "電池を入れるとラジオが流れ出した。";
-                                    txt2 = "留守番電話サービスなるものがあるらしい。";
-                                    txt3 = "『留守電サービス』のことを記憶した。";
-                                    txt4 = "！！　机の下から何かが現れた！！";
-                                    stateFlg[1] = 1;
-                                    ssvFlg[0] = 1;
-                                }else if(itemFlg[6] == 1 && itemFlg[7] == 1 && stateFlg[3] == 0){
-                                    txt = "カセットを再生した。";
-                                    txt2 = "研究者は監禁されていたみたい。";
-                                    txt3 = "秘密の裏口が…本欄の裏に、ある？";
-                                    txt4 = "！！　ベッドの下からも何かが現れた！！";
-                                    stateFlg[3] = 1;
-                                    ssvFlg[2] = 1;
-                                }else if(itemFlg[6] == 1 && itemFlg[7] == 1 && stateFlg[3] == 1){
-                                    txt = "カセットを再生した。";
-                                    txt2 = "研究者は監禁されていたみたい。";
-                                    txt3 = "秘密の裏口が…本欄の裏に、ある？";
-                                    txt4 = "";
-                                }else{
-                                    if(itemFlg[6] == 1){ 
-                                        txt = "ラジオはほとんど雑音になってしまった。";
-                                        txt2 = "聞き取れたのは留守番電話サービスのことくらい…。";
-                                        txt3 = "カセットは持っていない。";
-                                        txt4 = "というか、カセットなんか知らない。";
-                                    }else{
-                                        txt = "電池…どこかにないかな。";
-                                        txt2 = "";
-                                        txt3 = "";
-                                        txt4 = "";
-                                    }
-                                }
-                            //ID 20 4digits 228, 288 - 272, 356
-                            }else if(mnnCenterX>227 && mnnCenterX<273 && mnnCenterY>287 && mnnCenterY<357){
-                                if (itemFlg[3] == 0){
-                                    txt = "何かの連絡のようだ。";
-                                    txt2 = "…ん？ 書類の下に何か書いてある。";
-                                    txt3 = "1725…なんの数字だろう。";
-                                    txt4 = "『４桁の数字』をゲットした";
-                                    itemFlg[3] = 1;
-                                }else{
-                                    txt = "1725…なんの数字だろう。";
-                                    txt2 = "";
-                                    txt3 = "";
-                                    txt4 = "";
-                                }
-                            //ID 21 phone 176, 348 - 216 384
-                            }else if(mnnCenterX>175 && mnnCenterX<217 && mnnCenterY>347 && mnnCenterY<385){
-                                if (stateFlg[1] == 0){
-                                    txt = "古い電話機だ。どこにかけよう。";
-                                    txt2 = "スマホもないし番号なんて覚えていない。";
-                                    txt3 = "自分の番号はかからなかった。";
-                                    txt4 = "私は受話器を置いた。何だか詩的。";
-                                }else{
-                                    if (itemFlg[3] == 0){
-                                        txt = "ラジオが言っていた留守電サービスに";
-                                        txt2 = "かけてみた。…４桁の暗証番号？";
-                                        txt3 = "そんなの知らない。";
-                                        txt4 = "";
-                                    }else{
-                                        if (itemFlg[5] == 0){
-                                            txt = "留守番電話サービスにかけて、暗証番号を入力した。";
-                                            txt2 = "床下収納が何とか言っているけどひどく聞き取りづらい。";
-                                            txt3 = "番号は３…６…５。";
-                                            txt4 = "『３桁の番号』をゲットした。";
-                                            itemFlg[5] = 1;
-                                        }else{
-                                            txt = "なぜだろう。電話はもう繋がらない。";
-                                            txt2 = "";
-                                            txt3 = "";
-                                            txt4 = "";
-                                        }
-                                    }
-                                }
-                            }else{
-                                txt = "大きな机だ。";
-                                txt2 = "ラジカセと書類と黒電話が置かれている。";
-                                txt3 = "";
-                                txt4 = "";
-                            }
-                        }
-
-                        //ID 22 blood 336, 208 - 376, 244
-                        if (mnnCenterX>335 && mnnCenterX<378 && mnnCenterY>207 && mnnCenterY<245){
-                            txt = "げげ…気色が悪い…。";
-                            txt2 = "";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //ID 23 bed1 384, 284 -488, 336
-                        if (mnnCenterX>383 && mnnCenterX<489 && mnnCenterY>283 && mnnCenterY<337){
-                            txt = "黒いフレームのベッドにマットレスが乗っている。";
-                            txt2 = "ここに寝かされていたんだ。汚いなぁ…。";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-
-                        //24 bed2 384, 356 - 488, 404
-                        if (mnnCenterX>383 && mnnCenterX<489 && mnnCenterY>355 && mnnCenterY<405){
-                            if (stateFlg[2] == 0){
-                                txt = "シミのついたマットレスが乗っている。";
-                                txt2 = "何だか…、人の形に見える。";
-                                txt3 = "寝かされていたのがこっちじゃなくて良かった。";
-                                txt4 = "";
-                            }else{
-                                if (itemFlg[8] == 0){
-                                    console.log("???");
-                                    txt = "ベッドの下に潜り込んで必死に手を動かした。";
-                                    txt2 = "鍵を見つけた。緊急用と書いてある。";
-                                    txt3 = "埃まみれだ！　許さない！";
-                                    txt4 = "『鍵』をゲットした";
-                                    itemFlg[8] = 1;
-                                }else{
-                                    txt = "許さない！";
-                                    txt2 = "";
-                                    txt3 = "";
-                                    txt4 = "";
-                                }
-                            }
-                        }
-
-                        //25 bed3 384, 436 - 488, 478
-                        if (mnnCenterX>383 && mnnCenterX<489 && mnnCenterY>435 && mnnCenterY<479){
-                            if (itemFlg[2] == 0 && shavedId < 0){
-                                txt = "マットレスは消えてしまった。";
-                                txt2 = "どこにいってしまったのだろう。";
-                                txt3 = "あれ、何か落ちている…。ナイフだ。";
-                                txt4 = "『ナイフ』をゲットした。";
-                                itemFlg[2] = 1;
-                            }else{
-                                txt = "なんでナイフなんか落ちていたんだろう…。";
-                                txt2 = "なんでナイフなんか拾ったんだろう…。";
-                                txt3 = "";
-                                txt4 = "";
-                            }
-                        }
-
-                        //ID 2６ door 206, 456 -308, 492
-                        if (mnnCenterX>205 && mnnCenterX<309 && mnnCenterY>435 && mnnCenterY<493){
-                            txt = "ドアノブは回るのにドアは開かない。";
-                            txt2 = "外から塞がれてしまっているみたいだ。";
-                            txt3 = "";
-                            txt4 = "";
-                        }
-                        
-                                
-                        
-                        
-                        //メッセージを出す
+                        checkHere();
                     } else {
                         msgOn = 0;
                         fontsize = 17;
