@@ -397,10 +397,22 @@
 
                     //ID 13 shelf 462, 122 - 488, 272
                     if (mnnCenterX>461 && mnnCenterX<488 && mnnCenterY>121 && mnnCenterY<273){
-                        txt = "鍵のかかった棚の中に薬品が並んでいる。";
-                        txt2 = "ちょっとだけワクワクする。";
-                        txt3 = "";
-                        txt4 = "";
+                        if(itemFlg[0] == 1 && itemFlg[4] == 0){
+                            txt = "ここの鍵じゃないみたい。";
+                            txt2 = "";
+                            txt3 = "";
+                            txt4 = "";
+                        }else if(itemFlg[9] == 1){
+                            txt = "ここの鍵じゃないみたい。";
+                            txt2 = "どこの鍵なの、これ。";
+                            txt3 = "";
+                            txt4 = "";
+                        }else{
+                            txt = "鍵のかかった棚の中に薬品が並んでいる。";
+                            txt2 = "ちょっとだけワクワクする。";
+                            txt3 = "";
+                            txt4 = "";
+                        }
                     }
 
                     //ID 14 sink2 24, 260 - 68, 300
