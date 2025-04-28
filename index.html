@@ -811,9 +811,9 @@
                     ctx.font = fontsize + 'px Roboto medium';
                     ctx.fillStyle = '#FFFFFF';
                     ctx.fillText(txt, 24, 400 + fontsize);
-                    ctx.fillText(txt2, 24, 400 + (fontsize+4)*2);
-                    ctx.fillText(txt3, 24, 400 + (fontsize+4)*3);
-                    ctx.fillText(txt4, 24, 400 + (fontsize+4)*4);
+                    ctx.fillText(txt2, 24, 400 + fontsize*2 + 8);
+                    ctx.fillText(txt3, 24, 400 + fontsize*3 + 16);
+                    ctx.fillText(txt4, 24, 400 + fontsize*4 + 24);
                 }
                 if(ssvMoveCnt==ssvMoveDelay){
                     ssvMoveCnt = -1;
